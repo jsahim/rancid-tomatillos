@@ -7,10 +7,6 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
-    // this.genres = ['Action', 'Crime', 'Drama', 'Horror'];
-    // this.state = {
-    //   movies: []
-    // }
   }
 
   // displayAllGenres = () => {

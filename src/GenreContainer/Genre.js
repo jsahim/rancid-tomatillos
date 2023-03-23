@@ -19,7 +19,7 @@ const GenreSection = ({data}) => {
     return (
     <section className="genre-container">
       <h2 className="genre-name">Genre Name</h2>
-      <div className="movie-card">{movieCards}</div>
+      <div className="movie-cards">{movieCards}</div>
     </section>
   )
 }
