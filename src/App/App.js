@@ -7,19 +7,23 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
-    this.genres = ['Action', 'Crime', 'Drama', 'Horror'];
-
+    // this.genres = ['Action', 'Crime', 'Drama', 'Horror'];
+    // this.state = {
+    //   movies: []
+    // }
   }
 
-  displayAllGenres = () => {
-    return this.genres.map(genre => <GenreContainer genreName={genre} />)
-  }
+  // displayAllGenres = () => {
+  //   return this.genres.map(genre => <GenreContainer genreName={genre} />)
+  // }
 
   render() {
+    console.log(movieData)
     return (
       <main>
         <Navigation />
-        {this.displayAllGenres()}
+        <GenreContainer data={movieData} />
+        {/* {this.displayAllGenres()} */}
       </main>
     )
   }
