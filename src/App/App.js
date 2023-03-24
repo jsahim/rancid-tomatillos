@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: {}
+      selectedMovie: {},
+      movieChosen: false
     }
   }
 
@@ -19,18 +20,15 @@ class App extends Component {
 
   setClickedMovie = (id) => {
     const foundMov = movieData.movies.find(mov => mov.id == id)
-    console.log(foundMov)
-    this.setState({selectedMovie: foundMov})
-    console.log(this.state.selectedMovie)
+    this.setState({selectedMovie: foundMov, movieChosen: true})
   }
 
   render() {
     return (
       <main>
         <Navigation />
-        <GenreContainer data={movieData} select={this.setClickedMovie}/>
-        {/* {this.displayAllGenres()} */}
-        <MovieFeature clickedMovie={this.state.selectedMovie}/>
+        {!this.state.movieChosen && <GenreContainer data={movieData} select={this.setClickedMovie}/>}
+        {this.state.movieChosen && <MovieFeature clickedMovie={this.state.selectedMovie}/>}
       </main>
     )
   }
