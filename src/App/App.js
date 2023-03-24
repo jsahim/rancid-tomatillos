@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import movieData from "../data/data";
 import Navigation from "../Nav/Nav";
 import GenreContainer from "../GenreContainer/Genre"
-import Modal from "../MovieModal/MovieModal";
+import MovieFeature from "../MovieFeature/MovieFeature";
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
         <Navigation />
         <GenreContainer data={movieData} />
         {/* {this.displayAllGenres()} */}
-        <Modal />
+        <MovieFeature />
       </main>
     )
   }

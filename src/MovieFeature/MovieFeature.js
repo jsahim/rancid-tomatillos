@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import "./MovieModal.css";
+import "./MovieFeature.css";
 
-class Modal extends Component {
+class MovieFeature extends Component {
   constructor ({movie}) {
     super();
     this.state = {
@@ -40,4 +40,4 @@ class Modal extends Component {
   }
 }
 
-export default Modal;
+export default MovieFeature;
