@@ -1,0 +1,13 @@
+.card {
+  box-sizing: content-box;
+  border: 3px solid black;
+  width: 10rem;
+  height: 300px;
+  margin: 5px;
+}
+
+.card > img {
+  width: 10rem;
+  position: absolute;
+  z-index: -1;
+}
