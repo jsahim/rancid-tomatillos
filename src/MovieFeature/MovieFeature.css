@@ -1,3 +1,7 @@
 .single-movie-details {
   border: 5px solid fuchsia;
 }
+
+.content > img {
+  width: 30rem;
+}

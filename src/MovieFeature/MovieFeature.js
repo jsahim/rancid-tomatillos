@@ -15,7 +15,6 @@ class MovieFeature extends Component {
 
   render() {
     const movie = this.props.clickedMovie
-    console.log(movie)
     return (
       <section className="single-movie-details">
         <div className="content">
