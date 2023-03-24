@@ -2,17 +2,17 @@ import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import './Genre.css';
 
-const GenreSection = ({data}) => {
-  console.log(data);
+const GenreSection = ({data, select}) => {
   const movieCards = data.movies.map(movie => {
     return (
-      <MovieCard 
+      <MovieCard
         id={movie.id}
         poster={movie.poster_path}
         backdrop={movie.backdrop_path}
         title={movie.title}
         rating={movie.average_rating}
         release={movie.release_date}
+        select={select}
       />
     )
   })
