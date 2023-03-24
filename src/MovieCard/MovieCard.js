@@ -2,11 +2,11 @@ import React from "react"
 import "./MovieCard.css"
 
 
-const MovieCard = ({title, poster, rating}) => {
+const MovieCard = (props) => {
   return (
-    <div className="card">
-      <h3>{title}</h3>
-      <img src={poster} alt="Movie Image"></img>
+    <div className="card" onClick={() => props.select(props.id)}>
+      <h3>{props.title}</h3>
+      <img src={props.poster} alt="Movie Image"></img>
     </div>
   )
 }
