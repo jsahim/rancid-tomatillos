@@ -3,9 +3,10 @@ import MovieCard from "../MovieCard/MovieCard";
 import './Genre.css';
 
 const GenreSection = ({data, select}) => {
-  const movieCards = data.movies.map(movie => {
+  const movieCards = data.map(movie => {
     return (
       <MovieCard
+        key={movie.id}
         id={movie.id}
         poster={movie.poster_path}
         backdrop={movie.backdrop_path}
@@ -14,14 +15,14 @@ const GenreSection = ({data, select}) => {
         release={movie.release_date}
         select={select}
       />
-    )
-  })
+    );
+  });
     return (
     <section className="genre-container">
       <h2 className="genre-name">Genre Name</h2>
       <div className="movie-cards">{movieCards}</div>
     </section>
-  )
+  );
 }
 
 export default GenreSection;

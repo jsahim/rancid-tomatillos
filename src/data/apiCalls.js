@@ -7,7 +7,7 @@ const apiRequest = path => {
       throw new Error('Error');
     }
   })
-  .catch(error => console.log(`Could not fetch because: ${error}`))
+  .catch(error => console.log(`Could not fetch because: ${error}`));
 }
 
 const resolvePromise = path => {
