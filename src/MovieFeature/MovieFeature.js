@@ -2,12 +2,13 @@ import React, {Component} from "react";
 import "./MovieFeature.css";
 
 class MovieFeature extends Component {
-  constructor ({movie}) {
-    super();
-    this.state = {
-      clickedMovie: movie
-    }
-  }
+  // //ARE WE USING THIS CONSTRUCTOR AT ALL???
+  // constructor ({movie}) {
+  //   super();
+  //   this.state = {
+  //     clickedMovie: movie
+  //   }
+  // }
 
   goHome = e => {
     this.props.onClose && this.props.onClose(e);

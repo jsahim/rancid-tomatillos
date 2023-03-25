@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import resolvePromise from "../data/apiCalls";
 import movieData from "../data/data";
 import Navigation from "../Nav/Nav";
 import GenreContainer from "../GenreContainer/Genre"
@@ -9,11 +10,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      allMovies: [],
       selectedMovie: {},
       movieChosen: false
     }
   }
 
+  componentDidMount(){
+    resolvePromise("movies").then(data => {
+      this.setState({allMovies: data.movies})
+    })
+  }
   // displayAllGenres = () => {
   //   return this.genres.map(genre => <GenreContainer genreName={genre} />)
   // }
