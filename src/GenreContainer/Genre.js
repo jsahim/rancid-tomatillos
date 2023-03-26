@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
+import PropTypes from 'prop-types';
 import './Genre.css';
 
 const GenreSection = ({data, select}) => {
@@ -9,10 +10,7 @@ const GenreSection = ({data, select}) => {
         key={movie.id}
         id={movie.id}
         poster={movie.poster_path}
-        backdrop={movie.backdrop_path}
         title={movie.title}
-        rating={movie.average_rating}
-        release={movie.release_date}
         select={select}
       />
     );
@@ -26,3 +24,8 @@ const GenreSection = ({data, select}) => {
 }
 
 export default GenreSection;
+
+GenreSection.propTypes = {
+  data: PropTypes.array.isRequired,
+  select: PropTypes.func.isRequired
+}

@@ -1,34 +1,32 @@
-import React, {Component} from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import "./MovieFeature.css";
 
-class MovieFeature extends Component {
-
-  goHome = e => {
-    this.props.onClose && this.props.onClose(e);
-  };
-
-  render() {
-    const movie = this.props.clickedMovie;
-    return (
-      <section className="single-movie-details">
-        <div className="content">
-          <h2>{movie.title}</h2>
-          <img src={movie.backdrop_path} alt="Movie Backdrop"></img>
-          <div>
-            <p className="overview">{movie.overview}</p>
-            <p className="release-date">{movie.release_date}</p>
-            <p className="rating">{movie.average_rating}</p>
-            <p className="genre">{movie.genres}</p>
-            <p className="budget">{movie.budget}</p>
-            <p className="revenue">{movie.revenue}</p>
-            <p className="runtime">{movie.runtime}</p>
-            <p className="tagline">{movie.tagline}</p>
-          </div>
-          <button className="home-button" onClick={this.goHome}>Home</button>
+const MovieFeature = ({clickedMovie, homeClicked}) => {
+  return (
+    <section className="single-movie-details">
+      <div className="content">
+        <h2>{clickedMovie.title}</h2>
+        <img src={clickedMovie.backdrop_path} alt="Movie Backdrop"></img>
+        <div>
+          <p className="overview">{clickedMovie.overview}</p>
+          <p className="release-date">{clickedMovie.release_date}</p>
+          <p className="rating">{clickedMovie.average_rating}</p>
+          <p className="genre">{clickedMovie.genres}</p>
+          <p className="budget">{clickedMovie.budget}</p>
+          <p className="revenue">{clickedMovie.revenue}</p>
+          <p className="runtime">{clickedMovie.runtime}</p>
+          <p className="tagline">{clickedMovie.tagline}</p>
         </div>
-      </section>
-    );
-  }
+        <button className="home-button" onClick={() => homeClicked()}>Home</button>
+      </div>
+    </section>
+  );
 }
 
 export default MovieFeature;
+
+MovieFeature.propTypes = {
+  clickedMovie: PropTypes.object.isRequired,
+  homeClicked: PropTypes.func.isRequired
+}
