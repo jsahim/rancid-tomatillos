@@ -4,14 +4,9 @@ const apiRequest = path => {
     if(res.ok) {
       return res.json(); 
     } else {
-      throw new Error('Error');
+      throw new Error(res.status);
     }
-  })
-  .catch(error => console.log(`Could not fetch because: ${error}`));
+  });
 }
 
-const resolvePromise = path => {
-  return apiRequest(path);
-};
-
-export default resolvePromise;
+export default apiRequest;

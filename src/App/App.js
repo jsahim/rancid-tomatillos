@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import resolvePromise from "../data/apiCalls";
+import apiRequest from "../data/apiCalls";
 import Navigation from "../Nav/Nav";
 import GenreContainer from "../GenreContainer/Genre";
 import MovieFeature from "../MovieFeature/MovieFeature";
@@ -11,30 +11,36 @@ class App extends Component {
     this.state = {
       allMovies: [],
       selectedMovie: {},
-      movieChosen: false
+      featureMode: false,
+      error: ''
     };
   }
 
   componentDidMount(){
-    resolvePromise("movies").then(data => {
+    apiRequest("movies").then(data => {
       this.setState({allMovies: data.movies});
+    }).catch(() => {
+      this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
   }
-  // displayAllGenres = () => {
-  //   return this.genres.map(genre => <GenreContainer genreName={genre} />)
-  // }
 
   setClickedMovie = id => {
-    const foundMov = this.state.allMovies.find(mov => mov.id == id);
-    this.setState({selectedMovie: foundMov, movieChosen: true});
+    apiRequest(`movies/${id}`).then(data => this.setState({selectedMovie: data.movie, featureMode: true})).catch(() => {
+      this.setState({error: `We're sorry there was an error. Please refresh the page!`});
+    });
   }
 
+  goHome = () => {
+    this.setState({selectedMovie: {}, featureMode: false});
+  }
+  
   render() {
     return (
       <main>
         <Navigation />
-        {!this.state.movieChosen && <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}
-        {this.state.movieChosen && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie}/>}
+        {this.state.error && <h2>{this.state.error}</h2>}
+        {!this.state.featureMode && <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}
+        {this.state.featureMode && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome}/>}
       </main>
     );
   }
