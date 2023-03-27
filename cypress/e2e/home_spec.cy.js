@@ -16,4 +16,13 @@ describe('template spec', () => {
       .should("have.length", 40)
   })
 
+  it('should have cards that are each individual with a title, cover, and rating(in future)', () => {
+    cy.get(".card").first()
+      .contains("h3", "Black Adam")
+      .get("img").eq(2)
+      .should('have.attr', 'src')
+      .should('eq', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
+      // will eventually have specific ratings
+  })
+
 })
