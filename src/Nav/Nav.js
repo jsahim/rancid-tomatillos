@@ -7,7 +7,7 @@ const Navigation = () => {
       <img src="" alt="site"></img>
       <img src="" alt="user Icon"></img>
     </header>
-  )
+  );
 }
 
 export default Navigation;
