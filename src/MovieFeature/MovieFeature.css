@@ -1,7 +1,13 @@
 .single-movie-details {
-  border: 5px solid fuchsia;
+  color: white;
+}
+
+.content {
+  width: inherit;
 }
 
 .content > img {
-  width: 30rem;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
 }
