@@ -38,13 +38,15 @@ class App extends Component {
   
   render() {
     return (
-      <main>
+      < >
         <Navigation />
-        {!this.state.allMovies.length && <p className='loading-dialogue'>LOADING...</p>}
-        {this.state.error && <h2>{this.state.error}</h2>}
-        {!this.state.featureMode && <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}
-        {this.state.featureMode && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} videos={this.state.movieVideos.videos}/>}
-      </main>
+        <main>
+          {!this.state.allMovies.length && <p className='loading-dialogue'>LOADING...</p>}
+          {this.state.error && <h2>{this.state.error}</h2>}
+          {!this.state.featureMode && <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}
+          {this.state.featureMode && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} videos={this.state.movieVideos.videos}/>}
+        </main>
+      </>
     );
   }
 }
