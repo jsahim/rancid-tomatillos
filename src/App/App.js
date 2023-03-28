@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       allMovies: [],
       selectedMovie: {},
+      movieVideos: {}, 
       featureMode: false,
       error: ''
     };
@@ -28,6 +29,7 @@ class App extends Component {
     apiRequest(`movies/${id}`).then(data => this.setState({selectedMovie: data.movie, featureMode: true})).catch(() => {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
+    apiRequest(`movies/${id}/videos`).then(data => this.setState({movieVideos: data}))
   }
 
   goHome = () => {
@@ -40,7 +42,7 @@ class App extends Component {
         <Navigation />
         {this.state.error && <h2>{this.state.error}</h2>}
         {!this.state.featureMode && <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}
-        {this.state.featureMode && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome}/>}
+        {this.state.featureMode && <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} videos={this.state.movieVideos.videos}/>}
       </main>
     );
   }
