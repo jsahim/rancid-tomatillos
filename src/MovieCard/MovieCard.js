@@ -6,7 +6,6 @@ import "./MovieCard.css";
 const MovieCard = ({select, id, title, poster}) => {
   return (
     <div className="card" onClick={() => select(id)}>
-      <h3>{title}</h3>
       <img src={poster} alt="Movie Image"></img>
     </div>
   );

@@ -1,0 +1,9 @@
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: #292727;
+  position: relative;
+  z-index: 0;
+}
+
