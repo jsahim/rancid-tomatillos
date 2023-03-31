@@ -24,9 +24,9 @@ const MovieFeature = ({clickedMovie, homeClicked, videos}) => {
           <p className="runtime">Runtime: {clickedMovie.runtime} mins</p>
           <p className="tagline">{clickedMovie.tagline}</p>
           {movieKey ? <iframe src={`https://www.youtube.com/embed/${trailer.key}`} title={`${clickedMovie.title} Trailer`}></iframe> : <p>We're sorry there is no available Trailer...</p>}
-          <button className="home-button" onClick={() => homeClicked()}>Home</button>
         </div>
       </div>
+          <button className="home-button" onClick={() => homeClicked()}>Home</button>
     </section>
   );
 }
