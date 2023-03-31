@@ -1,34 +1,30 @@
 .single-movie-details {
   color: white;
   display: flex;
-  /* flex-direction: ; */
-}
-
-.content {
-  width: inherit;
-  overflow: hidden;
-}
-
-.content > h2 {
-  position: relative;
-  z-index: 1
+  height: 82vh;
 }
 
 .content > img {
-  height: 100vh;
-  top: 100px;
+  background-size: cover;
+  width: 100%;
   position: fixed;
+  right: 0px;
   z-index: -1;
 }
 
-.content > div {
-  background: linear-gradient(0.25turn, #000000, #000000e6, #0000006e);;  box-shadow: 0px 0px 5px black;
-  padding-left: 30px;
-  width: 40%;
-  height: 85vh;
+.details {
+  background: linear-gradient(0.25turn, #000000, #000000e6, #00000000);
+  padding: 10%;
+  width: 50vw;
+  height: 82vh;
+}
+
+.overview {
+  max-width: 400px;
 }
 
 .home-button {
+  align-self: center;
   height: 50px;
   width: 100px;
   border-radius: 5px;
@@ -37,4 +33,12 @@
   background-color: rgb(130 9 2);
   color: white;
   font-size: large;
+  position: fixed;
+  top: 145px;
+  right: 45px;
+}
+
+iframe {
+  width: 400px;
+  height: 200px;
 }

@@ -1,13 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./MovieCard.css";
 
 
 const MovieCard = ({select, id, title, poster}) => {
   return (
-    <div className="card" onClick={() => select(id)}>
-      <img src={poster} alt="Movie Image"></img>
-    </div>
+    <Link to={`/movies/${id}`} onClick={() => select(id)}>
+      <div className="card">
+        <img src={poster} alt={title}></img>
+      </div>
+    </Link>
   );
 }
 
