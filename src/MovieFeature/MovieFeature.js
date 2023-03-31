@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import "./MovieFeature.css";
 
 const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
-
-  {if(!error){
+  {if(!error && Object.keys(clickedMovie).length){
       return (
         <section className="single-movie-details">
           <div className="content">
@@ -28,7 +27,14 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
           </div>
         </section>
       );
-    }}
+    } else {
+      return (
+        <Link to="/home" onClick={() => homeClicked()}>
+          <button className="home-button">Home</button>
+        </Link>
+      )
+    }
+  }
 }
 
 export default MovieFeature;

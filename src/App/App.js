@@ -27,10 +27,9 @@ class App extends Component {
   }
 
   setClickedMovie = id => {
-    console.log(id)
-    apiRequest(`movies/${id}`).then(data => {
+    apiRequest(`movis/${id}`).then(data => {
       this.setState({selectedMovie: data.movie})}).catch(() => {
-      this.setState({error: `We're sorry there was an error. Please refresh the page!`});
+      this.setState({error: `We're sorry there was an error retriveing the movie. Please return to the home page and try again!`});
     });
     apiRequest(`movies/${id}/videos`).then(data => {
       const trailer = data.videos.find(vid => vid.site === 'YouTube' && vid.type === 'Trailer')
@@ -48,7 +47,7 @@ class App extends Component {
         <Navigation home={this.goHome}/>
         <main>
           {this.state.error && <h2 className="error-message">{this.state.error}</h2>}
-          {!this.state.allMovies.length && <p className='loading-dialogue'>LOADING...</p>}
+          {!this.state.allMovies.length && !this.state.error && <p className='loading-dialogue'>LOADING...</p>}
           <Switch>
             <Route path="/home" render={() => <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}/> 
             <Route path="/movies/:id" render={() =>
