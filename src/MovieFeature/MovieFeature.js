@@ -19,7 +19,7 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey}) => {
           <p className="revenue">Total Revenue: ${clickedMovie.revenue}</p>
           <p className="runtime">Runtime: {clickedMovie.runtime} mins</p>
           <p className="tagline">{clickedMovie.tagline}</p>
-          { trailerKey ? <iframe src={`https://www.youtube.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`}></iframe> : <p>We're sorry there is no available Trailer...</p>}
+          { trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry there is no available Trailer...</p>}
         </div>
         <Link to="/home" onClick={() => homeClicked()}>
           <button className="home-button">Home</button>
