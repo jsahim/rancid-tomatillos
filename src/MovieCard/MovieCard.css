@@ -1,13 +1,27 @@
 .card {
   border-radius: 5px;
-  margin: 7px;
-  width: 200px;
+  margin: 15px;
+  margin-bottom: 50px;
+  width: 215px;
   height: 300px;
   box-shadow: 4px 4px 5px black;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.card:hover {
+  margin: 0px;
+  width: 255px;
+  height: 350px;
 }
 
 .card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
   border-radius: 5px;
-  max-width: 200px;
-  max-height: 300px;
+}
+
+.card > img:hover {
+  border: 2px white solid;
 }

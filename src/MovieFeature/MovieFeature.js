@@ -13,7 +13,7 @@ const MovieFeature = ({clickedMovie, homeClicked, videos}) => {
     <section className="single-movie-details">
       <div className="content">
         <img src={clickedMovie.backdrop_path} alt="Movie Backdrop"></img>
-        <div>
+        <div className="details">
           <h2>{clickedMovie.title}</h2>
           <p className="overview">{clickedMovie.overview}</p>
           <p className="release-date">Release Date: {clickedMovie.release_date}</p>
