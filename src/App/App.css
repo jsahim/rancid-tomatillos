@@ -13,6 +13,12 @@ main {
   color: white;
   height: 100vh;
 }
+
+.error-message {
+  text-align: center;
+  margin: 100px;
+  color: white;
+}
 /* 
 .logo-spin {
   height: 400px;

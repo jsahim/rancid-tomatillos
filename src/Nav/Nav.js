@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Nav.css"
 
 
-const Navigation = () => {
+const Navigation = ({home}) => {
   return (
     <header className="header">
-      <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}>
+      <Link to="/home" style={{ textDecoration: 'none', color: 'white' }} onClick={() => home()}>
         <div className='logo-display'>
           <img className='logo-icon' src='./rancid-logo-eyes.png' alt="Home"></img>
           <h1>Rancid Tomatillos</h1>

@@ -13,7 +13,6 @@ class App extends Component {
       allMovies: [],
       selectedMovie: {},
       movieKey: '', 
-      featureMode: false,
       error: ''
     };
   }
@@ -30,7 +29,7 @@ class App extends Component {
   setClickedMovie = id => {
     console.log(id)
     apiRequest(`movies/${id}`).then(data => {
-      this.setState({selectedMovie: data.movie, featureMode: true})}).catch(() => {
+      this.setState({selectedMovie: data.movie})}).catch(() => {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
     apiRequest(`movies/${id}/videos`).then(data => {
@@ -40,20 +39,20 @@ class App extends Component {
   }
 
   goHome = () => {
-    this.setState({selectedMovie: {}, featureMode: false});
+    this.setState({selectedMovie: {}, error: ''});
   }
   
   render() {
     return (
       < >
-        <Navigation />
+        <Navigation home={this.goHome}/>
         <main>
-          {this.state.error && <h2>{this.state.error}</h2>}
+          {this.state.error && <h2 className="error-message">{this.state.error}</h2>}
           {!this.state.allMovies.length && <p className='loading-dialogue'>LOADING...</p>}
           <Switch>
             <Route path="/home" render={() => <GenreContainer key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}/> 
             <Route path="/movies/:id" render={() =>
-              <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} trailerKey={this.state.movieKey}/>
+              <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} trailerKey={this.state.movieKey} error={this.state.error}/>
             }/>
             <Redirect from="/" to="/home"/>
           </Switch>
