@@ -1,7 +1,56 @@
 .single-movie-details {
-  border: 5px solid fuchsia;
+  color: white;
+  display: flex;
+  height: 82vh;
 }
 
 .content > img {
-  width: 30rem;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
+  right: 0px;
+  z-index: -1;
+}
+
+.details {
+  background: linear-gradient(0.25turn, #000000, #000000e6, #00000000);
+  padding: 10%;
+  width: 50vw;
+  height: 82vh;
+}
+
+.details > h2 {
+  font-size: 2em;
+}
+
+
+.overview {
+  max-width: 400px;
+}
+
+.home-button {
+  align-self: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  border: 2px solid white;
+  background-color: rgb(130 9 2);
+  color: white;
+  font-size: large;
+  position: fixed;
+  top: 145px;
+  right: 45px;
+}
+
+iframe {
+  width: 400px;
+  height: 200px;
+  border: none;
+}
+
+.single-error {
+  text-align: center;
+  color: white;
 }

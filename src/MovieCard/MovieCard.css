@@ -1,13 +1,27 @@
 .card {
-  box-sizing: content-box;
-  border: 3px solid black;
-  width: 10rem;
+  border-radius: 5px;
+  margin: 15px;
+  margin-bottom: 50px;
+  width: 215px;
   height: 300px;
-  margin: 5px;
+  box-shadow: 4px 4px 5px black;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.card:hover {
+  margin: 0px;
+  width: 255px;
+  height: 350px;
 }
 
 .card > img {
-  width: 10rem;
-  position: absolute;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 5px;
+}
+
+.card > img:hover {
+  border: 2px white solid;
 }

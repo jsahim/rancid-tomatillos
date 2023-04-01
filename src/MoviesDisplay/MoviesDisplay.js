@@ -1,9 +1,9 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import PropTypes from 'prop-types';
-import './Genre.css';
+import './MoviesDisplay.css';
 
-const GenreSection = ({data, select}) => {
+const MoviesDisplay = ({data, select}) => {
   const movieCards = data.map(movie => {
     return (
       <MovieCard
@@ -16,16 +16,15 @@ const GenreSection = ({data, select}) => {
     );
   });
     return (
-    <section className="genre-container">
-      <h2 className="genre-name">Genre Name</h2>
+    <section>
       <div className="movie-cards">{movieCards}</div>
     </section>
   );
 }
 
-export default GenreSection;
+export default MoviesDisplay;
 
-GenreSection.propTypes = {
+MoviesDisplay.propTypes = {
   data: PropTypes.array.isRequired,
   select: PropTypes.func.isRequired
 }
