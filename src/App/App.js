@@ -15,13 +15,13 @@ class App extends Component {
     };
   }
 
-  componentDidMount(){
-    apiRequest("movies").then(data => {
-      this.setState({allMovies: data.movies});
-    }).catch(() => {
-      this.setState({error: `We're sorry there was an error. Please refresh the page!`});
-    });
-  }
+//   componentDidMount(){
+//     apiRequest("movies").then(data => {
+//       this.setState({allMovies: data.movies});
+//     }).catch(() => {
+//       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
+//     });
+//   }
   
   render() {
     return (
