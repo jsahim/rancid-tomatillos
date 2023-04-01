@@ -23,6 +23,17 @@
   font-size: 2em;
 }
 
+.rating {
+  display: flex;
+}
+
+.rating-img {
+  height: 30px;
+  width: 30px;
+  background-image: url('../../assets/rancid-logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .overview {
   max-width: 400px;
