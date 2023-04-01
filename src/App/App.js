@@ -27,9 +27,9 @@ class App extends Component {
   }
 
   setClickedMovie = id => {
-    apiRequest(`movis/${id}`).then(data => {
+    apiRequest(`moves/${id}`).then(data => {
       this.setState({selectedMovie: data.movie})}).catch(() => {
-      this.setState({error: `We're sorry there was an error retriveing the movie. Please return to the home page and try again!`});
+      this.setState({error: `We're sorry there was an error.`});
     });
     apiRequest(`movies/${id}/videos`).then(data => {
       const trailer = data.videos.find(vid => vid.site === 'YouTube' && vid.type === 'Trailer')

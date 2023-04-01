@@ -29,9 +29,12 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
       );
     } else {
       return (
-        <Link to="/home" onClick={() => homeClicked()}>
-          <button className="home-button">Home</button>
-        </Link>
+        <>
+          <h3 className="single-error">We were unable to retreive your movie. Please return home and make a new selection.</h3>
+          <Link to="/home" onClick={() => homeClicked()}>
+            <button className="home-button">Home</button>
+          </Link>
+        </>
       )
     }
   }
