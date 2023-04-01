@@ -1,34 +1,54 @@
 describe('Feature single movie page', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3000/')
       .get('.card')
       .first()
       .click()
+      .intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270" , {
+        statusCode: 201,
+        body: {
+          id: 436270,
+          backdrop_path: "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+          title:'Black Adam',
+          overview: "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+          release_date: '2022-10-19',
+          average_rating: 4,
+          genres: ['Action', 'Fantasy', 'Science Fiction'],
+          budget: 200000000,
+          revenue: 384571691,
+          runtime: 125,
+          tagline: "The world needed a hero. It got Black Adam.",
+        }
+      })
   });
 
-  it('should have the movie/s title, background image, and details on diplay for the user', () => {
+  it('should have the movie/s title, background image, and details on display for the user', () => {
     cy.get('.single-movie-details')
       .contains('h2', 'Black Adam')
       .get('img').eq(2)
       .should('have.attr', 'src')
       .should('eq', 'https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg')
-      .get('div')
+      .get('.details')
   })
 
-  it('should have cards that are each individual with a title, cover, and rating(in future)', () => {
-    cy.get('p').eq(1)
-      .should('have.class', 'release-date')
+  it('should have a overview, release date, rating, applicable genres, budget, revenue, runtime and tagline', () => {
+    cy.get('.overview')
+      .should('contain', "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.")
+      .get('.release-date')
       .should('contain', '2022-10-19')
-      .get('p').eq(2)
-      .should('have.class', 'rating')
+      .get('.rating')
       .should('contain', '4')
-      .get('p').eq(3)
-      .should('have.class', 'genre')
-      // .should('have.class', 'budget')
-      // .should('have.class', 'revenue')
-      // .should('have.class', 'runtime')
-      // .should('have.class', 'tagline')
+      .get('.genres')
+      .should('contain', ['Action', 'Fantasy', 'Science Fiction'])
+      .get('.budget')
+      .should('contain', 200000000)
+      .get('.revenue')
+      .should('contain', 384571691)
+      .get('.runtime')
+      .should('contain', 125)
+      .get('.tagline')
+      .should('contain', "The world needed a hero. It got Black Adam.")
   })
 
 })

@@ -15,7 +15,7 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
               <p className="overview">{clickedMovie.overview}</p>
               <p className="release-date">Release Date: {clickedMovie.release_date}</p>
               <p className="rating">Rating: {clickedMovie.average_rating}/10🫑</p>
-              <p className="genre">Genres: {clickedMovie.genres}</p>
+              <p className="genres">Genres: {clickedMovie.genres}</p>
               <p className="budget">Budget: ${clickedMovie.budget}</p>
               <p className="revenue">Total Revenue: ${clickedMovie.revenue}</p>
               <p className="runtime">Runtime: {clickedMovie.runtime} mins</p>
