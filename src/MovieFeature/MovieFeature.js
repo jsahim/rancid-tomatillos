@@ -1,34 +1,49 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import "./MovieFeature.css";
+import apiRequest from "../data/apiCalls";
 
-const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
-  console.log("movie?", clickedMovie)
-const formattedDetails = {
+class MovieFeature extends Component {
+  constructor () {
+    super()
+    this.state = {
+      movie: {},
+      trailerKey: '',
+      error: '' 
+    }
+  }
+  
+  componentDidMount() {
+    apiRequest(`movies/${this.props.id}`).then(data => {
+      this.setState({movie: data.movie});
+    }).catch(() => this.setState({error: `We're sorry there was an error.`}));
+    apiRequest(`movies/${this.props.id}/videos`).then(data => {
+     const trailer = data.videos.find(vid => vid.site === 'YouTube' && vid.type === 'Trailer');
+     this.setState({trailerKey: trailer ? trailer.key : ''});
+   });
+  }
 
-}
-  {if(!error && Object.keys(clickedMovie).length){
+  render() {
+    if(!this.state.error){
+      const movieInfo = this.state.movie
       return (
         <section className="single-movie-details">
           <div className="content">
-            <img src={clickedMovie.backdrop_path} alt="Movie Backdrop"></img>
+            <img src={movieInfo.backdrop_path} alt="Movie Backdrop"/>
             <div className="details">
-              <h2>{clickedMovie.title}</h2>
-              <p className="overview">{clickedMovie.overview}</p>
-              <p className="release-date">Release Date: {clickedMovie.release_date}</p>
-              <p className="rating">Rating: {clickedMovie.average_rating}/10🫑</p>
-              <p className="genres">Genres: {clickedMovie.genres}</p>
-              <p className="budget">Budget: ${clickedMovie.budget}</p>
-              <p className="revenue">Total Revenue: ${clickedMovie.revenue}</p>
-              <p className="runtime">Runtime: {clickedMovie.runtime} mins</p>
-              <p className="tagline">{clickedMovie.tagline}</p>
-              { trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry, there is no trailer available.</p>}
+              <h2>{movieInfo.title}</h2>
+              <p className="overview">{movieInfo.overview}</p>
+              <p className="release-date">Release Date: {movieInfo.release_date}</p>
+              <p className="rating">Rating: {movieInfo.average_rating}/10🫑</p>
+              <p className="genres">Genres: {movieInfo.genres}</p>
+              <p className="budget">Budget: ${movieInfo.budget}</p>
+              <p className="revenue">Total Revenue: ${movieInfo.revenue}</p>
+              <p className="runtime">Runtime: {movieInfo.runtime} mins</p>
+              <p className="tagline">{movieInfo.tagline}</p>
+              { this.state.trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${this.state.trailerKey}`} title={`${movieInfo.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry, there is no trailer available.</p>}
             </div>
-            <Link to="/home" onClick={() => {
-              console.log("ONCLICK-BUTTON");
-              homeClicked() 
-            }}>
+            <Link to="/home">
               <button className="home-button">Home</button>
             </Link>
           </div>
@@ -38,20 +53,19 @@ const formattedDetails = {
       return (
         <>
           <h3 className="single-error">We were unable to retreive your movie. Please return home and make a new selection.</h3>
-          <Link to="/home" onClick={() => homeClicked()}>
+          <Link to="/home">
             <button className="home-button">Home</button>
           </Link>
         </>
       )
     }
   }
+  
 }
 
 export default MovieFeature;
 
-MovieFeature.propTypes = {
-  clickedMovie: PropTypes.object.isRequired,
-  // homeClicked: PropTypes.func.isRequired,
-  trailerKey: PropTypes.string.isRequired,
-  error: PropTypes.string.isRequired
-}
+// MovieFeature.propTypes = {
+//   id: PropTypes.number.isRequired,
+//   error: PropTypes.string.isRequired
+// }

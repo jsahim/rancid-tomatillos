@@ -6,15 +6,11 @@ import "./MovieCard.css";
 
 const MovieCard = ({select, id, title, rating, poster}) => {
   return (
-    <Link to={`/movies/${id}`} onClick={() => {
-      console.log("ONCLICK-BUTTON");
-      // select(id)
-    }
-    }>
+    <Link to={`/movies/${id}`}>
       <div className="card">
         <img src={poster} alt={title}></img>
         <div className="card-rating" >
-          <img className="rating-img" src='./rancid-logo.png' alt=""/>
+          <div role="img" className="rating-img" aria-label="rating green tomatillo icon"></div>
           <p className="movie-rating">{rating}/10</p>
         </div>
       </div>
@@ -25,7 +21,6 @@ const MovieCard = ({select, id, title, rating, poster}) => {
 export default MovieCard;
 
 MovieCard.propTypes = {
-  select: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
