@@ -3,24 +3,22 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import "./Nav.css"
 
-
-const Navigation = ({home}) => {
+const Navigation = () => {
   return (
     <header className="header">
-      <Link to="/home" style={{ textDecoration: 'none', color: 'white' }} onClick={() => home()}>
+      <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}>
         <div className='logo-display'>
-          <img className='logo-icon' src='./rancid-logo-eyes.png' alt="Home"></img>
+          <div role="img" className="logo-icon" aria-label="green tomatillo with eyes logo"></div>
           <h1>Rancid Tomatillos</h1>
         </div>
       </Link>
-      <img src="" alt="site"></img>
-      <img src="" alt="user Icon"></img>
+      <div role="img" className="user-icon" aria-label="user icon"></div>
     </header>
   );
 }
 
 export default Navigation;
 
-Navigation.propTypes = {
-  home: PropTypes.func.isRequired
-}
+// Navigation.propTypes = {
+//   home: PropTypes.func.isRequired
+// }

@@ -11,7 +11,7 @@ const MoviesDisplay = ({data, select}) => {
         id={movie.id}
         poster={movie.poster_path}
         title={movie.title}
-        select={select}
+        rating={movie.average_rating}
       />
     );
   });
@@ -25,6 +25,5 @@ const MoviesDisplay = ({data, select}) => {
 export default MoviesDisplay;
 
 MoviesDisplay.propTypes = {
-  data: PropTypes.array.isRequired,
-  select: PropTypes.func.isRequired
+  data: PropTypes.array.isRequired
 }
