@@ -11,7 +11,7 @@ const MovieCard = ({select, id, title, rating, poster}) => {
         <img src={poster} alt={title}></img>
         <div className="card-rating" >
           <img className="rating-img" src='./rancid-logo.png' alt=""/>
-          <p>{rating}/10</p>
+          <p className="movie-rating">{rating}/10</p>
         </div>
       </div>
     </Link>

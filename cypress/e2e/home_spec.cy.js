@@ -1,12 +1,11 @@
 describe('Home page', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('http://localhost:3000/home');
   });
   
-  it('should show a title and a multitude of movie cards to a user when user visits http://localhost:3000', () => {
+  it('should show a title and a multitude of movie cards to a user when user visits http://localhost:3000/home', () => {
     cy.contains('h1', 'Rancid Tomatillos')
-      .get('.genre-container')
       .get('.movie-cards')
   })
 
@@ -16,19 +15,21 @@ describe('Home page', () => {
       .should('have.length', 40)
   })
 
-  it('should have cards that are each individual with a title, cover, and rating(in future)', () => {
+  it('should have cards that are each individual cover images and rating', () => {
+    console.log
     cy.get('.card').first()
-      .contains('h3', 'Black Adam')
-      .get('img').eq(2)
+      .get('img').eq(3)
       .should('have.attr', 'src')
       .should('eq', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
-      // will eventually have specific ratings
+      .get('.movie-rating').eq(1)
+      .should('have.text', "4/10")
   })
 
     it('should take a user to a specific movies details once they click that movie card', () => {
     cy.get('.card')
       .first()
       .click()
+      .visit('http://localhost:3000/movies/436270')
   })
 
 })
