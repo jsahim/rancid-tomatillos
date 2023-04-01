@@ -17,8 +17,8 @@ const MovieCard = ({select, id, title, poster}) => {
 export default MovieCard;
 
 MovieCard.propTypes = {
+  select: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  select: PropTypes.func.isRequired
+  poster: PropTypes.string.isRequired
 }

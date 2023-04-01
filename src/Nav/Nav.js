@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import "./Nav.css"
 
@@ -19,3 +20,7 @@ const Navigation = ({home}) => {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  home: PropTypes.func.isRequired
+}

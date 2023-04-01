@@ -19,7 +19,7 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
               <p className="revenue">Total Revenue: ${clickedMovie.revenue}</p>
               <p className="runtime">Runtime: {clickedMovie.runtime} mins</p>
               <p className="tagline">{clickedMovie.tagline}</p>
-              { trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry there is no available Trailer...</p>}
+              { trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry, there is no trailer available.</p>}
             </div>
             <Link to="/home" onClick={() => homeClicked()}>
               <button className="home-button">Home</button>
@@ -44,5 +44,7 @@ export default MovieFeature;
 
 MovieFeature.propTypes = {
   clickedMovie: PropTypes.object.isRequired,
-  homeClicked: PropTypes.func.isRequired
+  homeClicked: PropTypes.func.isRequired,
+  trailerKey: PropTypes.string.isRequired,
+  error: PropTypes.object.isRequired
 }
