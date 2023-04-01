@@ -20,6 +20,6 @@ const Navigation = ({home}) => {
 
 export default Navigation;
 
-Navigation.propTypes = {
-  home: PropTypes.func.isRequired
-}
+// Navigation.propTypes = {
+//   home: PropTypes.func.isRequired
+// }

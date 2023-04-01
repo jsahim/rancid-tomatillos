@@ -6,7 +6,11 @@ import "./MovieCard.css";
 
 const MovieCard = ({select, id, title, rating, poster}) => {
   return (
-    <Link to={`/movies/${id}`} onClick={() => select(id)}>
+    <Link to={`/movies/${id}`} onClick={() => {
+      console.log("ONCLICK-BUTTON");
+      // select(id)
+    }
+    }>
       <div className="card">
         <img src={poster} alt={title}></img>
         <div className="card-rating" >

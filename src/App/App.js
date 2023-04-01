@@ -18,12 +18,14 @@ class App extends Component {
   }
 
   componentDidMount(){
+    console.log("MOUNTING")
     apiRequest("movies").then(data => {
       this.setState({allMovies: data.movies});
     }).catch(() => {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
   }
+
 
   setClickedMovie = id => {
     apiRequest(`movies/${id}`).then(data => {
@@ -36,8 +38,17 @@ class App extends Component {
   })
   }
 
-  goHome = () => {
-    this.setState({selectedMovie: {}, error: ''});
+  // goHome = () => {
+  //   this.setState({selectedMovie: {}, error: ''});
+  // }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log("UPDATING")
+    // console.log("", prevProps)
+    // console.log("", prevState)
+    // if(this.state.){
+    //   this.setState({selectedMovie: {}, error: ''});
+    // }
   }
   
   render() {
@@ -49,8 +60,10 @@ class App extends Component {
           {!this.state.allMovies.length && !this.state.error && <p className='loading-dialogue'>LOADING...</p>}
           <Switch>
             <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}/> 
-            <Route path="/movies/:id" render={() =>
-              <MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} trailerKey={this.state.movieKey} error={this.state.error}/>
+            <Route path="/movies/:id" render={({match}) => {
+              console.log("FEATURE-MATCH", match)
+            {<MovieFeature key={this.state.selectedMovie.id} clickedMovie={this.state.selectedMovie} homeClicked={this.goHome} trailerKey={this.state.movieKey} error={this.state.error}/>}
+            }
             }/>
             <Redirect from="/" to="/home"/>
           </Switch>

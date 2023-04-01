@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import "./MovieFeature.css";
 
 const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
-  console.log(clickedMovie)
+  console.log("movie?", clickedMovie)
+const formattedDetails = {
+
+}
   {if(!error && Object.keys(clickedMovie).length){
       return (
         <section className="single-movie-details">
@@ -22,7 +25,10 @@ const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
               <p className="tagline">{clickedMovie.tagline}</p>
               { trailerKey ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${trailerKey}`} title={`${clickedMovie.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe> : <p> We're sorry, there is no trailer available.</p>}
             </div>
-            <Link to="/home" onClick={() => homeClicked()}>
+            <Link to="/home" onClick={() => {
+              console.log("ONCLICK-BUTTON");
+              homeClicked() 
+            }}>
               <button className="home-button">Home</button>
             </Link>
           </div>
@@ -45,7 +51,7 @@ export default MovieFeature;
 
 MovieFeature.propTypes = {
   clickedMovie: PropTypes.object.isRequired,
-  homeClicked: PropTypes.func.isRequired,
+  // homeClicked: PropTypes.func.isRequired,
   trailerKey: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired
 }
