@@ -17,14 +17,14 @@ class App extends Component {
     };
   }
 
-  componentDidMount(){
-    console.log("MOUNTING")
-    apiRequest("movies").then(data => {
-      this.setState({allMovies: data.movies});
-    }).catch(() => {
-      this.setState({error: `We're sorry there was an error. Please refresh the page!`});
-    });
-  }
+  // componentDidMount(){
+  //   console.log("MOUNTING")
+  //   apiRequest("movies").then(data => {
+  //     this.setState({allMovies: data.movies});
+  //   }).catch(() => {
+  //     this.setState({error: `We're sorry there was an error. Please refresh the page!`});
+  //   });
+  // }
 
 
   setClickedMovie = id => {
@@ -57,7 +57,12 @@ class App extends Component {
         <Navigation home={this.goHome}/>
         <main>
           {this.state.error && <h2 className="error-message">{this.state.error}</h2>}
-          {!this.state.allMovies.length && !this.state.error && <p className='loading-dialogue'>LOADING...</p>}
+          {!this.state.allMovies.length && !this.state.error && 
+          <div className="loading-screen">
+            <p className='loading-dialogue'>LOADING . . .</p>
+            <img className="loading-logo rotate" src="./rancid-logo-eyes.png" alt="spinning loading logo"/>
+          </div>
+          }
           <Switch>
             <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.allMovies} select={this.setClickedMovie}/>}/> 
             <Route path="/movies/:id" render={({match}) => {

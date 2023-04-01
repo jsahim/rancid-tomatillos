@@ -7,11 +7,17 @@ main {
   z-index: 0;
 }
 
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 .loading-dialogue {
   text-align: center;
-  font-size: xx-large;
+  font-size: 2.5em;
   color: white;
-  height: 100vh;
 }
 
 .error-message {
@@ -19,10 +25,23 @@ main {
   margin-top: 200px;
   color: white;
 }
-/* 
-.logo-spin {
-  height: 400px;
-  filter: drop-shadow(0px 0px 2px white);
-  float: right;
-} */
 
+.loading-logo {
+  height: 70px;
+  margin: 5px;
+  filter: drop-shadow(0px 0px 3px white);
+  pointer-events: none;
+}
+
+.rotate {
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

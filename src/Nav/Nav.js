@@ -13,7 +13,7 @@ const Navigation = ({home}) => {
           <h1>Rancid Tomatillos</h1>
         </div>
       </Link>
-      <img src="" alt="user Icon"></img>
+      <img className="user-icon" src="./user-icon.png" alt="user Icon"></img>
     </header>
   );
 }
