@@ -11,6 +11,7 @@ const MoviesDisplay = ({data, select}) => {
         id={movie.id}
         poster={movie.poster_path}
         title={movie.title}
+        rating={movie.average_rating}
         select={select}
       />
     );

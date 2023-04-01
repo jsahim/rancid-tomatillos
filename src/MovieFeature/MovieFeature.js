@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import "./MovieFeature.css";
 
 const MovieFeature = ({clickedMovie, homeClicked, trailerKey, error}) => {
+  console.log(clickedMovie)
   {if(!error && Object.keys(clickedMovie).length){
       return (
         <section className="single-movie-details">
@@ -46,5 +47,5 @@ MovieFeature.propTypes = {
   clickedMovie: PropTypes.object.isRequired,
   homeClicked: PropTypes.func.isRequired,
   trailerKey: PropTypes.string.isRequired,
-  error: PropTypes.object.isRequired
+  error: PropTypes.string.isRequired
 }
