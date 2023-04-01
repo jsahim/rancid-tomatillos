@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
-import apiRequest from "../data/apiCalls";
+import apiRequest from "../../data/apiCalls";
 import Navigation from "../Nav/Nav";
 import MoviesDisplay from "../MoviesDisplay/MoviesDisplay";
 import MovieFeature from "../MovieFeature/MovieFeature";

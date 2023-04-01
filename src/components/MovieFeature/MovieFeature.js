@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import "./MovieFeature.css";
-import apiRequest from "../data/apiCalls";
+import apiRequest from "../../data/apiCalls";
 
 class MovieFeature extends Component {
   constructor () {
