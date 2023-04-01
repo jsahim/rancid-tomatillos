@@ -19,6 +19,11 @@
   height: 82vh;
 }
 
+.details > h2 {
+  font-size: 2em;
+}
+
+
 .overview {
   max-width: 400px;
 }
@@ -30,6 +35,7 @@
   border-radius: 5px;
   margin: 10px;
   border: none;
+  border: 2px solid white;
   background-color: rgb(130 9 2);
   color: white;
   font-size: large;
@@ -41,4 +47,10 @@
 iframe {
   width: 400px;
   height: 200px;
+  border: none;
+}
+
+.single-error {
+  text-align: center;
+  color: white;
 }
