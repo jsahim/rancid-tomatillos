@@ -10,6 +10,12 @@ const cleanMovieData = (movieObject) => {
   }, {})
   cleanData.genres = cleanData.genres.join(", ")
   cleanData.release_date = cleanReleaseDate(cleanData.release_date)
+  if (cleanData.budget !== "unavailable") {
+    cleanData.budget = `$${cleanData.budget.toLocaleString("en-US")}`;
+  }
+  if (cleanData.revenue !== "unavailable") {
+    cleanData.revenue = `$${cleanData.revenue.toLocaleString("en-US")}`;
+  }
   return cleanData
 }
 
@@ -29,4 +35,4 @@ const cleanTrailerData = () => {
 }
 
 
-export { cleanMovieData, cleanTrailerData };
+export default cleanMovieData;

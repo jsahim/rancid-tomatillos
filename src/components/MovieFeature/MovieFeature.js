@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { cleanMovieData, cleanTrailerData } from "../../utilities/utilities"
+import cleanMovieData from "../../utilities/utilities"
 import PropTypes from 'prop-types';
 import "./MovieFeature.css";
 import apiRequest from "../../data/apiCalls";
@@ -51,8 +51,8 @@ class MovieFeature extends Component {
             <p className="release-date">Release Date: {movieInfo.release_date}</p>
             <div className="rating-container"><p className="rating">Rating: {movieInfo.average_rating}/10</p><div role="img" className="movie-rating-img" aria-label="rating green tomatillo icon"></div></div>
             <p className="genres">Genres: {movieInfo.genres}</p>
-            <p className="budget">Budget: ${movieInfo.budget}</p>
-            <p className="revenue">Total Revenue: ${movieInfo.revenue}</p>
+            <p className="budget">Budget: {movieInfo.budget}</p>
+            <p className="revenue">Total Revenue: {movieInfo.revenue}</p>
             <p className="runtime">Runtime: {movieInfo.runtime} minutes</p>
             <p className="tagline">Tagline: {movieInfo.tagline}</p>
             {trailerDisplay}
