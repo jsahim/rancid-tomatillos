@@ -16,7 +16,6 @@ describe('Home page', () => {
   })
 
   it('should have cards that are each individual cover images and rating', () => {
-    console.log
     cy.get('.card').first()
       .get('img').eq(3)
       .should('have.attr', 'src')

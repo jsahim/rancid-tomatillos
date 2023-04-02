@@ -21,12 +21,15 @@ describe('Feature single movie page', () => {
           tagline: "The world needed a hero. It got Black Adam.",
         }
       })
+
+      // cy.visit 
   });
 
   it('should have the movie/s title, background image, and details on display for the user', () => {
     cy.get('.single-movie-details')
       .contains('h2', 'Black Adam')
-      .get('img').eq(2)
+      .get('.content')
+      .get('img')
       .should('have.attr', 'src')
       .should('eq', 'https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg')
       .get('.details')
@@ -36,11 +39,11 @@ describe('Feature single movie page', () => {
     cy.get('.overview')
       .should('contain', "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.")
       .get('.release-date')
-      .should('contain', '2022-10-19')
+      .should('contain', 'Oct 19, 2022')
       .get('.rating')
       .should('contain', '4')
       .get('.genres')
-      .should('contain', ['Action', 'Fantasy', 'Science Fiction'])
+      .should('contain', 'Action, Fantasy, Science Fiction')
       .get('.budget')
       .should('contain', 200000000)
       .get('.revenue')
@@ -50,5 +53,7 @@ describe('Feature single movie page', () => {
       .get('.tagline')
       .should('contain', "The world needed a hero. It got Black Adam.")
   })
+  
+
 
 })
