@@ -1,0 +1,11 @@
+.search-bar {
+  position: fixed;
+  right: 100px;
+  border: 4px solid rgb(73 106 3);;
+  background-color: white;
+  text-indent: 10px;
+  height: 40px;
+  width: 250px;
+  font-size: x-large;
+  border-radius: 5px;
+}

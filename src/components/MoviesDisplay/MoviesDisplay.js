@@ -3,9 +3,9 @@ import MovieCard from "../MovieCard/MovieCard";
 import PropTypes from 'prop-types';
 import './MoviesDisplay.css';
 
-const MoviesDisplay = ({data}) => {
+const MoviesDisplay = ({data, loading}) => {
   let movieContents; 
-  !data.length ? movieContents = <h2 style={{color:"white"}}>We're sorry, but there are no movies that match your search.</h2> 
+  !data.length && !loading ? movieContents = <h2 style={{color:"white"}}>We're sorry, but there are no movies that match your search.</h2> 
   : movieContents = data.map(movie => {
     return (
       <MovieCard

@@ -12,21 +12,21 @@ class App extends Component {
     super();
     this.state = {
       allMovies: [],
-      searchedMovies: [], 
+      searchedMovies: [],
+      isLoading: true,
       error: ''
     };
   }
 
   componentDidMount(){
     apiRequest("movies").then(data => {
-      this.setState({allMovies: data.movies, searchedMovies: data.movies});
+      this.setState({allMovies: data.movies, searchedMovies: data.movies, isLoading: false});
     }).catch(() => {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
   }
 
   setSearchResults = (matchMovies) => {
-    console.log(matchMovies)
     this.setState({ searchedMovies: matchMovies });
   }
   
@@ -46,7 +46,7 @@ class App extends Component {
         <main>
           {errorMessage}
           <Switch>
-            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies}/>}/> 
+            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies} loading={this.state.isLoading}/>}/> 
             <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id} error={this.state.error}/>}/>
             <Route exact path="/user-page" render={() => <UserPage/>}/>
             <Redirect from="/" to="/home"/>

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 import "./Nav.css"
 
 const Navigation = ({search, moviesData}) => {
@@ -11,9 +11,9 @@ const Navigation = ({search, moviesData}) => {
         <div className='logo-display'>
           <div role="img" className="logo-icon" aria-label="green tomatillo with eyes logo"></div>
           <h1>Rancid Tomatillos</h1>
-          <SearchBar search={search} moviesData={moviesData}/>
         </div>
       </Link>
+      <SearchBar search={search} moviesData={moviesData}/>
       <Link to="/user-page">
         <div role="button" className="user-icon" aria-label="user icon"></div>
       </Link>
