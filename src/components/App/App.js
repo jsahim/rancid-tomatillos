@@ -12,13 +12,14 @@ class App extends Component {
     super();
     this.state = {
       allMovies: [],
+      searchedMovies: [], 
       error: ''
     };
   }
 
   componentDidMount(){
     apiRequest("movies").then(data => {
-      this.setState({allMovies: data.movies});
+      this.setState({allMovies: data.movies, searchedMovies: data.movies});
     }).catch(() => {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });

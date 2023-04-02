@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 import "./Nav.css"
 
-const Navigation = () => {
+const Navigation = ({search, moviesData}) => {
   return (
     <header className="header">
       <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}>
         <div className='logo-display'>
           <div role="img" className="logo-icon" aria-label="green tomatillo with eyes logo"></div>
           <h1>Rancid Tomatillos</h1>
+          <SearchBar search={search} moviesData={moviesData}/>
         </div>
       </Link>
       <Link to="/user-page">
