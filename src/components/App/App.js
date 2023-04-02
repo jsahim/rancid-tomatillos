@@ -27,7 +27,11 @@ class App extends Component {
   }
 
   setSearchResults = (matchMovies) => {
-    this.setState({ searchedMovies: matchMovies });
+    this.setState({ searchedMovies: matchMovies});
+  }
+
+  clearSearchResults = () => {
+    this.setState({ searchedMovies: this.state.allMovies});
   }
   
   render() {
@@ -42,11 +46,11 @@ class App extends Component {
   
     return (
       <>
-        <Navigation search={this.setSearchResults} moviesData={this.state.allMovies}/>
+        <Navigation search={this.setSearchResults} moviesData={this.state.allMovies} clearSearch={this.clearSearchResults}/>
         <main>
           {errorMessage}
           <Switch>
-            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies} loading={this.state.isLoading}/>}/> 
+            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies} loading={this.state.isLoading} clearSearch={this.clearSearchResults}/>}/> 
             <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id} error={this.state.error}/>}/>
             <Route exact path="/user-page" render={() => <UserPage/>}/>
             <Redirect from="/" to="/home"/>

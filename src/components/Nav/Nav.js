@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./Search/SearchBar";
 import "./Nav.css"
 
-const Navigation = ({search, moviesData}) => {
+const Navigation = ({search, moviesData, clearSearch}) => {
   return (
     <header className="header">
       <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}>
@@ -13,7 +13,7 @@ const Navigation = ({search, moviesData}) => {
           <h1>Rancid Tomatillos</h1>
         </div>
       </Link>
-      <SearchBar search={search} moviesData={moviesData}/>
+      <SearchBar search={search} moviesData={moviesData} clearSearch={clearSearch}/>
       <Link to="/user-page">
         <div role="button" className="user-icon" aria-label="user icon"></div>
       </Link>
