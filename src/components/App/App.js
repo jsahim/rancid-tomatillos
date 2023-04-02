@@ -4,6 +4,7 @@ import apiRequest from "../../data/apiCalls";
 import Navigation from "../Nav/Nav";
 import MoviesDisplay from "../MoviesDisplay/MoviesDisplay";
 import MovieFeature from "../MovieFeature/MovieFeature";
+import UserPage from "../User/UserPage";
 import "./App.css";
 
 class App extends Component {
@@ -24,20 +25,24 @@ class App extends Component {
   }
   
   render() {
+    let errorMessage = this.state.error
+      ? <h2 className="error-message">{this.state.error}</h2>
+      : !this.state.allMovies.length && !this.state.error 
+      ? <div className="loading-screen">
+          <p className='loading-dialogue'>LOADING . . .</p>
+          <div role="img" className="loading-logo rotate"  aria-label="spinning loading logo"></div>
+        </div>
+      : null
+  
     return (
-      < >
+      <>
         <Navigation/>
         <main>
-          {this.state.error && <h2 className="error-message">{this.state.error}</h2>}
-          {!this.state.allMovies.length && !this.state.error && 
-          <div className="loading-screen">
-            <p className='loading-dialogue'>LOADING . . .</p>
-            <div role="img" className="loading-logo rotate"  aria-label="spinning loading logo"></div>
-          </div>
-          }
+          {errorMessage}
           <Switch>
             <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.allMovies}/>}/> 
             <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id} error={this.state.error}/>}/>
+            <Route exact path="/user-page" render={() => <UserPage/>}/>
             <Redirect from="/" to="/home"/>
           </Switch>
         </main>

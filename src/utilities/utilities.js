@@ -1,6 +1,4 @@
-
 const cleanMovieData = (movieObject) => {
-  console.log(movieObject)
   const movieKeys = Object.keys(movieObject)
   const cleanData = movieKeys.reduce((acc, key) => {
     if(movieObject[key]){

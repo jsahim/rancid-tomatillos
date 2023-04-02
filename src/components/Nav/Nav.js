@@ -12,13 +12,11 @@ const Navigation = () => {
           <h1>Rancid Tomatillos</h1>
         </div>
       </Link>
-      <div role="img" className="user-icon" aria-label="user icon"></div>
+      <Link to="/user-page">
+        <div role="button" className="user-icon" aria-label="user icon"></div>
+      </Link>
     </header>
   );
 }
 
 export default Navigation;
-
-// Navigation.propTypes = {
-//   home: PropTypes.func.isRequired
-// }
