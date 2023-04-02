@@ -3,8 +3,10 @@ import MovieCard from "../MovieCard/MovieCard";
 import PropTypes from 'prop-types';
 import './MoviesDisplay.css';
 
-const MoviesDisplay = ({data, select}) => {
-  const movieCards = data.map(movie => {
+const MoviesDisplay = ({data}) => {
+  let movieContents; 
+  !data.length ? movieContents = <h2 style={{color:"white"}}>We're sorry, but there are no movies that match your search.</h2> 
+  : movieContents = data.map(movie => {
     return (
       <MovieCard
         key={movie.id}
@@ -17,7 +19,7 @@ const MoviesDisplay = ({data, select}) => {
   });
     return (
     <section>
-      <div className="movie-cards">{movieCards}</div>
+      <div className="movie-cards">{movieContents}</div>
     </section>
   );
 }

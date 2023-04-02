@@ -24,6 +24,11 @@ class App extends Component {
       this.setState({error: `We're sorry there was an error. Please refresh the page!`});
     });
   }
+
+  setSearchResults = (matchMovies) => {
+    console.log(matchMovies)
+    this.setState({ searchedMovies: matchMovies });
+  }
   
   render() {
     let errorMessage = this.state.error
@@ -37,11 +42,11 @@ class App extends Component {
   
     return (
       <>
-        <Navigation/>
+        <Navigation search={this.setSearchResults} moviesData={this.state.allMovies}/>
         <main>
           {errorMessage}
           <Switch>
-            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.allMovies}/>}/> 
+            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies}/>}/> 
             <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id} error={this.state.error}/>}/>
             <Route exact path="/user-page" render={() => <UserPage/>}/>
             <Redirect from="/" to="/home"/>
