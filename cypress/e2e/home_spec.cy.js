@@ -19,7 +19,7 @@ describe('Home page', () => {
     cy.get('.card').first()
       .get('img').eq(3)
       .should('have.attr', 'src')
-      .should('eq', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
+      .should('eq', 'https://image.tmdb.org/t/p/original//ps2oKfhY6DL3alynlSqY97gHSsg.jpg')
       .get('.movie-rating').eq(1)
       .should('have.text', "4/10")
   })

@@ -22,7 +22,6 @@ describe('Feature single movie page', () => {
         }
       })
 
-      // cy.visit 
   });
 
   it('should have the movie/s title, background image, and details on display for the user', () => {
@@ -45,15 +44,14 @@ describe('Feature single movie page', () => {
       .get('.genres')
       .should('contain', 'Action, Fantasy, Science Fiction')
       .get('.budget')
-      .should('contain', 200000000)
+      .should('contain', '$200,000,000')
       .get('.revenue')
-      .should('contain', 384571691)
+      .should('contain', '$384,571,691')
       .get('.runtime')
       .should('contain', 125)
       .get('.tagline')
       .should('contain', "The world needed a hero. It got Black Adam.")
+      .get('iframe')
   })
   
-
-
 })
