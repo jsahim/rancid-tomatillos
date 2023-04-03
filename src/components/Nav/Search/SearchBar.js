@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import "./SearchBar.css"
+import PropTypes from "prop-types";
+import "./SearchBar.css";
 
 class SearchBar extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       searchText: ''
     }
@@ -20,13 +21,13 @@ class SearchBar extends Component {
   componentDidUpdate(prevProps, prevState){
     if(prevState.searchText !== this.state.searchText){
       const filtedMovies = this.props.moviesData.filter(mov => {
-        const movieTitle = mov.title.toLowerCase()
-        const searchMatch = this.state.searchText.toLowerCase()
+        const movieTitle = mov.title.toLowerCase();
+        const searchMatch = this.state.searchText.toLowerCase();
         if(movieTitle.includes(searchMatch)){
-          return true
+          return true;
         } 
-      })
-      this.props.search(filtedMovies)
+      });
+      this.props.search(filtedMovies);
     }
   }
 
@@ -41,12 +42,18 @@ class SearchBar extends Component {
           onChange={event => this.handleChange(event)}
         />
         <button className="clear-search-btn" onClick={() => {
-          this.clearBar()
-          this.props.clearSearch()
+          this.clearBar();
+          this.props.clearSearch();
           }}>X</button>
       </div>
-    )
+    );
   }
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  search: PropTypes.func.isRequired,
+  moviesData: PropTypes.array.isRequired,
+  clearSearch: PropTypes.func.isRequired
+};

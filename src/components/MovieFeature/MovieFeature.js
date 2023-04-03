@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import cleanMovieData from "../../utilities/utilities"
-import PropTypes from 'prop-types';
+import cleanMovieData from "../../utilities/utilities";
+import PropTypes from "prop-types";
 import "./MovieFeature.css";
 import apiRequest from "../../data/apiCalls";
 
@@ -39,22 +39,22 @@ class MovieFeature extends Component {
       );
     } else {
       let trailerDisplay = this.state.trailerKey 
-        ? <iframe className='movie-poster' src={`https://www.youtube-nocookie.com/embed/${this.state.trailerKey}`} title={`${movieInfo.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+        ? <iframe className='movie-trailer' src={`https://www.youtube-nocookie.com/embed/${this.state.trailerKey}`} title={`${movieInfo.title} Trailer`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
         : <p> We're sorry, there is no trailer available.</p>
       return (
         <section className="single-movie-details">
         <div className="content">
           <img src={movieInfo.backdrop_path} alt="Movie Backdrop"/>
           <div className="details">
-            <h2>{movieInfo.title}</h2>
-            <p className="overview">{movieInfo.overview}</p>
-            <p className="release-date">Release Date: {movieInfo.release_date}</p>
-            <div className="rating-container"><p className="rating">Rating: {movieInfo.average_rating}/10</p><div role="img" className="movie-rating-img" aria-label="rating green tomatillo icon"></div></div>
-            <p className="genres">Genres: {movieInfo.genres}</p>
-            <p className="budget">Budget: {movieInfo.budget}</p>
-            <p className="revenue">Total Revenue: {movieInfo.revenue}</p>
-            <p className="runtime">Runtime: {movieInfo.runtime} minutes</p>
-            <p className="tagline">Tagline: {movieInfo.tagline}</p>
+            <h2 tabIndex="0" >{movieInfo.title}</h2>
+            <p tabIndex="0" className="overview">{movieInfo.overview}</p>
+            <p tabIndex="0" className="release-date"><span className="prefix">Release Date: </span>{movieInfo.release_date}</p>
+            <div tabIndex="0" className="rating-container"><p className="rating"><span className="prefix">Rating: </span>{movieInfo.average_rating}/10</p><div role="img" className="movie-rating-img" aria-label="rating green tomatillo icon"></div></div>
+            <p tabIndex="0" className="genres"><span className="prefix">Genres: </span>{movieInfo.genres}</p>
+            <p tabIndex="0" className="budget"><span className="prefix">Budget: </span>{movieInfo.budget}</p>
+            <p tabIndex="0" className="revenue"><span className="prefix">Total Revenue: </span>{movieInfo.revenue}</p>
+            <p tabIndex="0" className="runtime"><span className="prefix">Runtime: </span>{movieInfo.runtime} minutes</p>
+            <p tabIndex="0" className="tagline"><span className="prefix">Tagline: </span>{movieInfo.tagline}</p>
             {trailerDisplay}
           </div>
           <Link to="/home">
@@ -62,14 +62,13 @@ class MovieFeature extends Component {
           </Link>
         </div>
       </section>
-      )
+      );
     }
   }
 }
 
 export default MovieFeature;
 
-// MovieFeature.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   error: PropTypes.string.isRequired
-// }
+MovieFeature.propTypes = {
+  id: PropTypes.number.isRequired
+};

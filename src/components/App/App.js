@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from "react-router-dom";
 import apiRequest from "../../data/apiCalls";
 import Navigation from "../Nav/Nav";
 import MoviesDisplay from "../MoviesDisplay/MoviesDisplay";
@@ -27,11 +27,11 @@ class App extends Component {
   }
 
   setSearchResults = (matchMovies) => {
-    this.setState({ searchedMovies: matchMovies});
+    this.setState({ searchedMovies: matchMovies });
   }
 
   clearSearchResults = () => {
-    this.setState({ searchedMovies: this.state.allMovies});
+    this.setState({ searchedMovies: this.state.allMovies });
   }
   
   render() {
@@ -50,8 +50,8 @@ class App extends Component {
         <main>
           {errorMessage}
           <Switch>
-            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies} loading={this.state.isLoading} clearSearch={this.clearSearchResults}/>}/> 
-            <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id} error={this.state.error}/>}/>
+            <Route path="/home" render={() => <MoviesDisplay key={Date.now()} data={this.state.searchedMovies} loading={this.state.isLoading}/>}/> 
+            <Route path="/movies/:id" render={({match}) => <MovieFeature key={match.params.id} id={match.params.id}/>}/>
             <Route exact path="/user-page" render={() => <UserPage/>}/>
             <Redirect from="/" to="/home"/>
           </Switch>

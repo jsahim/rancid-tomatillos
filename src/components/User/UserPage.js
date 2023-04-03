@@ -7,7 +7,7 @@ const UserPage = () => {
   return (
     <section className="user-page">
       <h2> Welcome User, thanks for stopping by!</h2>
-      <h3>We are currently developing our user login features! Please check back soon!</h3>
+      <h3>We are currently developing our user login features. Please check back soon.</h3>
       <Link to="/home">
         <button className="home-button">Home</button>
       </Link>

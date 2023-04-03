@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import SearchBar from "./Search/SearchBar";
-import "./Nav.css"
+import "./Nav.css";
 
 const Navigation = ({search, moviesData, clearSearch}) => {
   return (
@@ -22,3 +22,9 @@ const Navigation = ({search, moviesData, clearSearch}) => {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  search: PropTypes.func.isRequired,
+  moviesData: PropTypes.array.isRequired,
+  clearSearch: PropTypes.func.isRequired
+};

@@ -82,3 +82,7 @@ iframe {
   color: white;
   margin-top: 100px
 }
+
+.prefix {
+  font-weight: 900;
+} 

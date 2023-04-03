@@ -27,5 +27,6 @@ const MoviesDisplay = ({data, loading}) => {
 export default MoviesDisplay;
 
 MoviesDisplay.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 }
