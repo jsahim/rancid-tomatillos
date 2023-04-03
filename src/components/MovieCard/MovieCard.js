@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./MovieCard.css";
 
 
-const MovieCard = ({select, id, title, rating, poster}) => {
+const MovieCard = ({id, title, rating, poster}) => {
   return (
     <Link to={`/movies/${id}`}>
       <div className="card">

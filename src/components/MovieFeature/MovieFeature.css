@@ -1,7 +1,7 @@
 .single-movie-details {
   color: white;
   display: flex;
-  height: 82vh;
+  height: 80vh;
 }
 
 .content > img {
@@ -16,16 +16,38 @@
   background: linear-gradient(0.25turn, #000000, #000000e6, #00000000);
   padding: 10%;
   width: 50vw;
-  height: 82vh;
+  height: 73vh;
 }
 
 .details > h2 {
   font-size: 2em;
 }
 
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating {
+  margin: 0;
+}
+
+.movie-rating-img {
+  height: 30px;
+  width: 30px;
+  background-image: url('../../assets/rancid-logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .overview {
   max-width: 400px;
+}
+
+.home-location {
+  position: fixed;
+  top: 145px;
+  right: 45px;
 }
 
 .home-button {
@@ -39,9 +61,6 @@
   background-color: rgb(130 9 2);
   color: white;
   font-size: large;
-  position: fixed;
-  top: 145px;
-  right: 45px;
   cursor: pointer;
 }
 
@@ -58,7 +77,12 @@ iframe {
   border: none;
 }
 
-.single-error {
+.movie-error-display {
   text-align: center;
   color: white;
+  margin-top: 100px
 }
+
+.prefix {
+  font-weight: 900;
+} 
