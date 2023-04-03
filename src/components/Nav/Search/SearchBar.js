@@ -25,7 +25,9 @@ class SearchBar extends Component {
         const searchMatch = this.state.searchText.toLowerCase();
         if(movieTitle.includes(searchMatch)){
           return true;
-        } 
+        } else {
+          return false;
+        }
       });
       this.props.search(filtedMovies);
     }
