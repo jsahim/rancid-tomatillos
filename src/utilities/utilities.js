@@ -30,9 +30,4 @@ const cleanReleaseDate = (date) => {
   return formattedDate
 }
 
-const cleanTrailerData = () => {
-
-}
-
-
 export default cleanMovieData;

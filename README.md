@@ -6,15 +6,17 @@
 
 ## App Preview
 [//]: <>
+![chrome-capture-2023-3-2](https://user-images.githubusercontent.com/107663888/229396564-86274666-a1e8-4dee-89e9-dc9ff00a24d2.gif)
+
 
 ### Deployed Link
 [//]: <>
-Click [here](https://rancid-tomatillos-jsahim.vercel.app/home) for the deployed site!
+View our deployed [site](https://rancid-tomatillos-jsahim.vercel.app/home)!
 
 ## Contributors
 [//]: <>
-Sophie LaBelle: [Github](https://github.com/sophielabelle), [LinkedIn](https://www.linkedin.com/in/sophie-labelle-3b4890209/)
-Jeff Sahim: [Github](https://github.com/jsahim), [LinkedIn](https://www.linkedin.com/in/jeff-sahim/), 
+- Sophie LaBelle: [Github](https://github.com/sophielabelle), [LinkedIn](https://www.linkedin.com/in/sophie-labelle-3b4890209/)
+- Jeff Sahim: [Github](https://github.com/jsahim), [LinkedIn](https://www.linkedin.com/in/jeff-sahim/)
 
 ## Learning Goals
 [//]: <>
@@ -36,12 +38,11 @@ Jeff Sahim: [Github](https://github.com/jsahim), [LinkedIn](https://www.linkedin
 - Npm and Git
 
 ## Getting Started
-1. Clone the repo
-1. git clone git@github.com:nkinsaul/animation-contemplation.git
-1. Install NPM packages
-1. npm install
-1. Run npm start
+1. Go to this [Repo](https://github.com/jsahim/rancid-tomatillos) and run `git clone git@github.com:jsahim/rancid-tomatillos.git`
+1. `cd` into the Repo
+1. Run `npm install`
+1. Run `npm start`
 1. Use the Link that is given in the Terminal & Open in Browser. Example: http://localhost:3000/
 
 ## Project Spec
-The project specs can be found [here.](https://frontend.turing.edu/lessons/module-3/react-2-the-how.html)
+The project specs can be found [here.](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
